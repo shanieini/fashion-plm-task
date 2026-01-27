@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "rootDir": "./src",           // <--- השינוי החשוב: מגדיר את שורש הקוד
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "sourceMap": true             // <--- מומלץ: עוזר מאוד בדיבוג (Debugging)
+  },
+  "include": ["src/**/*"],        // <--- חשוב: אומר לקומפיילר להתייחס רק לקבצים ב-src
+  "exclude": ["node_modules", "dist"]
+}

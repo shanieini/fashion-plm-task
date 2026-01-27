@@ -1,0 +1,157 @@
+.card {
+    background-color: #fff;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -1px rgb(0 0 0 / 0.06);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    height: fit-content;
+}
+
+.header {
+    background-color: #1e293b;
+    color: #fff;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.headerContent {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.subtitle {
+    color: #cbd5e1;
+    font-size: 0.875rem;
+    margin: 0.5rem 0 0 0;
+}
+
+.cancelButton {
+    font-size: 0.8rem;
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+    border-radius: 4px;
+    padding: 4px 8px;
+    cursor: pointer;
+    transition: background-color 0.15s;
+}
+
+.cancelButton:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* --- Form Layout --- */
+.form {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.formSection {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.sectionHeader {
+    font-size: 1.125rem;
+    font-weight: 600;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+    color: #374151;
+}
+
+.label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.input {
+    width: 100%;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    padding: 0.5rem;
+    outline: none;
+    box-sizing: border-box;
+    font-size: 0.95rem;
+    transition: box-shadow 0.15s, border-color 0.15s;
+    background-color: #fff;
+}
+
+.input:focus {
+    box-shadow: 0 0 0 2px #3b82f6;
+    border-color: #3b82f6;
+}
+
+.textarea {
+    width: 100%;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    padding: 0.5rem;
+    outline: none;
+    box-sizing: border-box;
+    font-size: 0.95rem;
+    transition: box-shadow 0.15s, border-color 0.15s;
+    background-color: #fff;
+    font-family: inherit;
+}
+
+.textarea:focus {
+    box-shadow: 0 0 0 2px #3b82f6;
+    border-color: #3b82f6;
+}
+
+/* --- Submit Button --- */
+.submitButton {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.15s;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+.submitEnabled {
+    background-color: #2563eb;
+}
+
+.submitEnabled:hover {
+    background-color: #1d4ed8;
+}
+
+.submitDisabled {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.submitCreate {
+    background-color: #2563eb;
+}
+
+.submitCreate:hover {
+    background-color: #1d4ed8;
+}
+
+.submitUpdate {
+    background-color: #d97706;
+}
+
+.submitUpdate:hover {
+    background-color: #b45309;
+}

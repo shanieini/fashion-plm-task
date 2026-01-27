@@ -1,0 +1,122 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// --- Enums ---
+
+enum LifecycleState {
+  Concept
+  Sample
+  Mass_Production
+}
+
+enum SampleStatus {
+  Pending
+  Approved
+  Rejected
+}
+
+// --- Models ---
+
+model Garment {
+  id               Int            @id @default(autoincrement())
+  name             String
+  description      String?
+  lifecycleState   LifecycleState @default(Concept)
+  
+  // Timestamps
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+  
+  // Soft Delete
+  deletedAt        DateTime?      
+
+  // Design Evolution (Self-Relation)
+  parentId         Int?
+  parent           Garment?       @relation("GarmentHistory", fields: [parentId], references: [id], onDelete: SetNull)
+  variations       Garment[]      @relation("GarmentHistory")
+
+  // Supplier for Mass Production (The selected supplier for manufacturing)
+  chosenSupplierId Int?
+  chosenSupplier   Supplier?      @relation("ChosenSupplier", fields: [chosenSupplierId], references: [id])
+
+  // Relationships
+  attributes       GarmentAttribute[]
+  materials        GarmentMaterial[]
+  samples          Sample[]
+}
+
+model Material {
+  id       Int               @id @default(autoincrement())
+  name     String            @unique
+  garments GarmentMaterial[]
+}
+
+model GarmentMaterial {
+  garmentId  Int
+  materialId Int
+  percentage Float // e.g., 95.0 for 95%
+
+  garment    Garment  @relation(fields: [garmentId], references: [id], onDelete: Cascade)
+  material   Material @relation(fields: [materialId], references: [id], onDelete: Cascade)
+
+  @@id([garmentId, materialId])
+}
+
+model Attribute {
+  id       Int                @id @default(autoincrement())
+  name     String             @unique
+  category String             // e.g., "Sleeve Type", "Usage"
+  garments GarmentAttribute[]
+}
+
+model GarmentAttribute {
+  garmentId   Int
+  attributeId Int
+
+  garment     Garment   @relation(fields: [garmentId], references: [id], onDelete: Cascade)
+  attribute   Attribute @relation(fields: [attributeId], references: [id], onDelete: Cascade)
+
+  @@id([garmentId, attributeId])
+}
+
+// Business Rule: Defines which attributes cannot coexist
+model IncompatibleRule {
+  id           Int    @id @default(autoincrement())
+  attributeAId Int
+  attributeBId Int
+  reason       String? // Optional explanation for the UI
+
+  @@unique([attributeAId, attributeBId])
+}
+
+model Supplier {
+  id                Int       @id @default(autoincrement())
+  name              String
+  contactInfo       String?
+  
+  samples           Sample[]
+  chosenForGarments Garment[] @relation("ChosenSupplier")
+}
+
+model Sample {
+  id         Int          @id @default(autoincrement())
+  status     SampleStatus @default(Pending)
+  feedback   String?
+  priceOffer Float?       // Important for selecting a supplier for Mass Production
+  createdAt  DateTime     @default(now())
+
+  garmentId  Int
+  supplierId Int
+
+  garment    Garment  @relation(fields: [garmentId], references: [id], onDelete: Cascade)
+  supplier   Supplier @relation(fields: [supplierId], references: [id])
+}

@@ -1,0 +1,148 @@
+.garmentCard {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    position: relative;
+    transition: border-color 0.15s;
+}
+
+.garmentCard:hover {
+    border-color: #cbd5e1;
+}
+
+.garmentCardEditing {
+    border-color: #d97706;
+    border-width: 2px;
+}
+
+.garmentHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.garmentName {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin: 0 0 4px 0;
+    color: #0f172a;
+}
+
+.garmentId {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    display: block;
+    margin-bottom: 2px;
+}
+
+/* Status Badges */
+.statusBadge {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 9999px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+}
+
+.statusConcept {
+    background-color: #e0f2fe;
+    color: #0369a1;
+    border: 1px solid #bae6fd;
+}
+
+.statusProduction {
+    background-color: #dcfce7;
+    color: #15803d;
+    border: 1px solid #bbf7d0;
+}
+
+.garmentDetails {
+    font-size: 0.85rem;
+    color: #4b5563;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.garmentDetails p {
+    margin: 4px 0;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.editBtn {
+    background-color: #eab308;
+    color: white;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: background-color 0.15s;
+}
+
+.editBtn:hover {
+    background-color: #facc15;
+}
+
+.cloneBtn {
+    background-color: #f59e0b;
+    color: white;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: background-color 0.15s;
+}
+
+.cloneBtn:hover {
+    background-color: #fbbf24;
+}
+
+.promoteBtn {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: background-color 0.15s;
+}
+
+.promoteBtn:hover {
+    background-color: #2563eb;
+}
+
+.deleteBtn {
+    align-self: flex-end;
+    background-color: #fff;
+    border: 1px solid #fee2e2;
+    color: #ef4444;
+    padding: 0.35rem 0.75rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: all 0.15s;
+}
+
+.deleteBtn:hover {
+    background-color: #fee2e2;
+    color: #b91c1c;
+}

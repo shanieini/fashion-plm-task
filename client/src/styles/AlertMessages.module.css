@@ -1,0 +1,28 @@
+.alert {
+    padding: 1rem;
+    border-radius: 0.375rem;
+    border-left-width: 4px;
+    margin-bottom: 1rem;
+}
+
+.errorAlert {
+    background-color: #fef2f2;
+    border-color: #ef4444;
+    color: #991b1b;
+}
+
+.successAlert {
+    background-color: #f0fdf4;
+    border-color: #22c55e;
+    color: #166534;
+}
+
+.alertTitle {
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 80rem;
+}
