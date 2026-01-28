@@ -45,15 +45,7 @@ A full-stack application for managing the fashion product development lifecycle,
 - Node.js (v22+)
 - PostgreSQL
 
-### 1. Create the Database
-
-Run in your PostgreSQL client:
-
-```sql
-CREATE DATABASE fashion_plm;
-```
-
-### 2. Configure Environment Variables
+### 1. Configure Environment Variables
 
 Create a `.env` file inside the `server` directory (or update it if it exists):
 
@@ -63,14 +55,14 @@ DATABASE_URL="postgresql://USER:PASSWORD@localhost:5432/fashion_plm"
 
 Prisma relies on the `DATABASE_URL` variable to establish the database connection.
 
-### 3. Install Backend Dependencies
+### 2. Install Backend Dependencies
 
 ```sh
 cd server
 npm install
 ```
 
-### 4. Apply Database Schema
+### 3. Apply Database Schema (server folder)
 
 For assessment purposes, the database schema can be applied using Prisma's
 `db push` command, which synchronizes the schema without creating migration
@@ -79,7 +71,7 @@ history files:
 npx prisma db push
 
 
-### 5. Seed Initial Data
+### 4. Seed Initial Data (server folder)
 
 To insert base reference data (e.g., materials):
 
@@ -87,7 +79,7 @@ To insert base reference data (e.g., materials):
 npx prisma db seed
 ```
 
-### 6. (Optional) Open Prisma Studio
+### 5. (Optional) Open Prisma Studio (server folder)
 
 Launch a browser-based UI to inspect garments, materials, lifecycle states, and version relationships:
 
@@ -95,14 +87,14 @@ Launch a browser-based UI to inspect garments, materials, lifecycle states, and 
 npx prisma studio
 ```
 
-### 7. Start the Backend Server
+### 6. Start the Backend Server
 
 ```sh
 cd server
 npm run dev
 ```
 
-### 8. Start the Client
+### 7. Start the Client
 
 ```sh
 cd client
